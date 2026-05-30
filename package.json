@@ -1,0 +1,16 @@
+{
+  "name": "ai-agent-lab",
+  "version": "1.0.0",
+  "description": "面向 AI Agent 的攻略教学与实战指南",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "keywords": ["ai", "agent", "claude-code", "openclaw", "tutorial"],
+  "author": "Timyang",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
