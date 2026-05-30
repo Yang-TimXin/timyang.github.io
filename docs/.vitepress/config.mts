@@ -51,6 +51,22 @@ export default defineConfig({
           ]
         }
       ],
+      '/cursor/': [
+        {
+          text: 'Cursor',
+          items: [
+            { text: '概览', link: '/cursor/' },
+          ]
+        }
+      ],
+      '/windsurf/': [
+        {
+          text: 'Windsurf',
+          items: [
+            { text: '概览', link: '/windsurf/' },
+          ]
+        }
+      ],
       '/openclaw/': [
         {
           text: 'OpenClaw',
