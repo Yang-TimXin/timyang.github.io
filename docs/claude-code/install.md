@@ -1,104 +1,208 @@
-# 安装配置
+# Claude Code 安装与配置
 
-## 系统要求
+## 一、系统要求
 
-| 系统 | 最低版本 | 推荐版本 |
-|------|---------|---------|
-| macOS | 12.0+ | 最新 |
-| Windows | 10+ | 最新 |
-| Linux | Ubuntu 20.04+ | 最新 |
+### 操作系统
 
-## 安装步骤
+| 系统 | 最低版本 | 推荐 |
+|------|----------|------|
+| macOS | 12.0 (Monterey) | 14.0+ (Sonoma) |
+| Linux | Ubuntu 20.04 / Debian 11 | Ubuntu 22.04+ |
+| Windows | 10 (Build 19041) | Windows 11 |
 
-### 方式一：npm 安装（推荐）
+### 环境依赖
+
+- **Node.js**：v18.0 或更高版本（推荐 v20 LTS）
+- **npm**：v9.0 或更高版本（随 Node.js 一起安装）
+- **Git**：任意较新版本
+- **终端**：macOS Terminal、iTerm2、Windows Terminal、PowerShell 等
+
+### API Key
+
+Claude Code 需要 Anthropic API Key 才能运行：
+
+- 前往 [Anthropic Console](https://console.anthropic.com/) 注册账号
+- 在 API Keys 页面创建新的密钥
+- 密钥格式为 `sk-ant-api03-...`
+
+## 二、安装步骤
+
+### 方式一：通过 npm 全局安装（推荐）
 
 ```bash
+# 安装 Claude Code
 npm install -g @anthropic-ai/claude-code
-```
 
-安装完成后验证：
-
-```bash
+# 验证安装
 claude --version
 ```
 
-### 方式二：Homebrew（macOS）
+### 方式二：通过 npx 临时使用
+
+如果不想全局安装，可以直接运行：
 
 ```bash
-brew install anthropic/claude/claude-code
+npx @anthropic-ai/claude-code
 ```
 
-### 方式三：从源码安装
+### 方式三：macOS 用户可通过 Homebrew
 
 ```bash
-git clone https://github.com/anthropics/claude-code.git
-cd claude-code
-npm install
-npm link
+# 添加 tap（如果尚未添加）
+brew tap anthropic-ai/claude
+
+# 安装
+brew install claude
 ```
 
-## 首次配置
+## 三、API Key 配置
 
-### 1. 获取 API Key
-
-1. 访问 [Anthropic Console](https://console.anthropic.com)
-2. 注册/登录账号
-3. 创建 API Key
-4. 复制保存
-
-### 2. 配置环境变量
+### 方法一：环境变量（推荐）
 
 ```bash
-# macOS/Linux
-export ANTHROPIC_API_KEY="your-api-key-here"
+# 在 shell 配置文件中添加（~/.zshrc 或 ~/.bashrc）
+export ANTHROPIC_API_KEY="sk-ant-api03-xxxxxxxxxxxx"
 
-# Windows PowerShell
-$env:ANTHROPIC_API_KEY="your-api-key-here"
+# 重新加载配置
+source ~/.zshrc  # 或 source ~/.bashrc
 ```
 
-建议将环境变量写入 shell 配置文件（如 `~/.zshrc` 或 `~/.bashrc`）以便持久化。
-
-### 3. 首次启动
+### 方法二：首次启动时交互式输入
 
 ```bash
 claude
+# 首次启动会提示输入 API Key
+# 粘贴你的 Key 并回车即可
 ```
 
-首次启动会引导你完成基础配置。
+### 方法三：使用 .env 文件
 
-## IDE 集成
+在项目根目录创建 `.env` 文件：
+
+```env
+ANTHROPIC_API_KEY=sk-ant-api03-xxxxxxxxxxxx
+```
+
+> **安全提示**：务必将 `.env` 添加到 `.gitignore` 中！
+
+### API Key 安全最佳实践
+
+```bash
+# 使用direnv管理项目级环境变量（推荐）
+# 安装direnv
+brew install direnv  # macOS
+apt install direnv   # Linux
+
+# 创建 .envrc
+echo 'export ANTHROPIC_API_KEY="your-key-here"' > .envrc
+direnv allow
+```
+
+## 四、IDE 集成
 
 ### VS Code 集成
 
-1. 安装 VS Code 扩展
-2. 在终端中使用 `claude` 命令
-3. 或使用 VS Code 内置终端
+Claude Code 可以直接在 VS Code 的终端中运行：
 
-### JetBrains 集成
+1. 安装 VS Code
+2. 打开内置终端（`` Ctrl+` ``）
+3. 在终端中运行 `claude` 启动
 
-Claude Code 可以在任何 JetBrains IDE 的终端中使用。
+**推荐配置**：
 
-## 常见安装问题
-
-### 权限问题
-
-```bash
-# 使用 sudo（不推荐）
-sudo npm install -g @anthropic-ai/claude-code
-
-# 推荐：修改 npm 全局目录
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-export PATH=~/.npm-global/bin:$PATH
+```json
+// .vscode/settings.json
+{
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.fontSize": 14
+}
 ```
 
-### 网络问题
+### JetBrains IDE 集成
 
-```bash
-# 使用镜像源
-npm install -g @anthropic-ai/claude-code --registry https://registry.npmmirror.com
+1. 打开 IDE 内置终端（View → Tool Windows → Terminal）
+2. 运行 `claude` 启动
+3. Claude Code 会自动检测项目结构
+
+### Neovim / Vim 集成
+
+通过终端分屏使用：
+
+```vim
+" 在 .vimrc 中配置快捷键
+nnoremap <leader>cc :terminal claude<CR>
 ```
 
-## 下一步
+### tmux 分屏工作流
 
-安装完成后，前往 [基础用法](/claude-code/basics) 开始使用。
+```bash
+# 创建分屏
+tmux new-session -s dev
+
+# 左边编辑代码，右边运行 Claude Code
+# Ctrl+B, % 分屏
+# Ctrl+B, → 切换到右窗格
+# 运行 claude
+```
+
+## 五、代理配置（中国开发者）
+
+由于网络原因，中国开发者可能需要配置代理：
+
+### 设置 HTTP 代理
+
+```bash
+# 临时设置
+export HTTP_PROXY="http://127.0.0.1:7890"
+export HTTPS_PROXY="http://127.0.0.1:7890"
+
+# 或者在 .zshrc / .bashrc 中永久设置
+```
+
+### 使用 Clash / V2Ray
+
+确保终端能够访问外部网络：
+
+```bash
+# 测试连接
+curl https://api.anthropic.com/v1/messages
+
+# 如果代理工具不走终端，尝试
+export ALL_PROXY="socks5://127.0.0.1:7890"
+```
+
+## 六、验证安装
+
+```bash
+# 检查版本
+claude --version
+
+# 检查 API 连接
+claude --print "Hello, are you working?"
+
+# 如果看到回复，说明安装成功
+```
+
+## 七、更新 Claude Code
+
+```bash
+# npm 全局更新
+npm update -g @anthropic-ai/claude-code
+
+# 或指定版本安装
+npm install -g @anthropic-ai/claude-code@latest
+```
+
+## 八、卸载
+
+```bash
+# npm 卸载
+npm uninstall -g @anthropic-ai/claude-code
+
+# 清理配置文件
+rm -rf ~/.claude  # 注意：会删除所有配置和对话历史
+```
+
+---
+
+*安装完成后，前往 [基础用法](./basics.md) 了解如何使用 Claude Code。*

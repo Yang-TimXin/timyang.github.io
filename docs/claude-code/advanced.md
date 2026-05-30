@@ -1,127 +1,256 @@
-# 高级技巧
+# Claude Code 高级技巧
 
-## CLAUDE.md 配置文件
+## 一、CLAUDE.md 配置文件
 
-在项目根目录创建 `CLAUDE.md` 文件，告诉 Claude 你的项目规范：
+CLAUDE.md 是 Claude Code 的核心配置文件，相当于给 AI 一个"项目说明书"。它让 Claude 理解你的项目约定、编码规范和工作流。
+
+### 项目级 CLAUDE.md
+
+在项目根目录创建 `CLAUDE.md`：
 
 ```markdown
-# 项目规范
+# 项目说明
 
-## 代码风格
-- 使用 TypeScript
-- 遵循 ESLint 规则
-- 函数命名使用 camelCase
-- 组件命名使用 PascalCase
+## 技术栈
+- 前端：React 18 + TypeScript + Vite
+- 后端：Node.js + Express + Prisma
+- 数据库：PostgreSQL
+- 测试：Vitest + Testing Library
+
+## 代码规范
+- 使用 2 空格缩进
+- 使用单引号字符串
+- 组件使用 PascalCase 命名
+- 工具函数使用 camelCase 命名
 
 ## 项目结构
-- src/components/ - React 组件
-- src/hooks/ - 自定义 Hooks
-- src/api/ - API 请求
-- src/utils/ - 工具函数
+- src/components/ — 可复用 UI 组件
+- src/pages/ — 页面组件
+- src/api/ — API 路由和控制器
+- src/lib/ — 工具函数和配置
+- prisma/ — 数据库 schema
 
-## 注意事项
-- 不要使用 any 类型
-- 所有函数必须有返回类型
-- 组件必须有 props 类型定义
+## 重要约定
+- 所有 API 必须有错误处理
+- 数据库操作使用 Prisma，禁止原生 SQL
+- 组件必须有 TypeScript 类型定义
+- Git 提交信息遵循 Conventional Commits 规范
 ```
 
-## 自定义指令
+### 用户级 CLAUDE.md
 
-在 `CLAUDE.md` 中添加常用指令：
+在 `~/.claude/CLAUDE.md` 中放置个人偏好：
 
 ```markdown
-## 常用指令
+# 个人偏好
 
-### 代码生成
-生成代码时，总是：
-1. 添加 TypeScript 类型定义
-2. 添加 JSDoc 注释
-3. 包含错误处理
-4. 编写对应的测试用例
+## 语言
+- 回复使用中文
+- 代码注释使用英文
+
+## 编码习惯
+- 优先使用函数式编程
+- 避免使用 any 类型
+- 错误处理要详细，包含用户友好的消息
 ```
 
-## 高效提示词模板
+### 目录级 CLAUDE.md
 
-### 代码审查
+在特定目录下放置更具体的指令：
 
-```
-审查 src/ 目录下的代码，重点关注：
-1. 安全漏洞
-2. 性能问题
-3. 代码规范
-4. 类型安全
+```markdown
+# src/api/CLAUDE.md
 
-输出格式：
-- 问题描述
-- 严重程度（高/中/低）
-- 修复建议
+## API 开发规范
+- 所有路由使用 Express Router
+- 控制器函数返回统一格式：{ success, data, error }
+- 使用 Zod 进行请求参数验证
+- 每个接口必须有 JSDoc 注释
 ```
 
-### 文档生成
+## 二、自定义指令技巧
+
+### 链式指令
 
 ```
-为项目生成 README.md，包含：
-1. 项目简介
-2. 技术栈
-3. 安装步骤
-4. 使用说明
-5. API 文档
-6. 贡献指南
+请按以下步骤执行：
+1. 先读取 src/config/database.ts 了解数据库配置
+2. 分析 prisma/schema.prisma 中的数据模型
+3. 检查现有 API 中是否有 N+1 查询问题
+4. 输出优化建议和修改后的代码
 ```
 
-### 性能优化
+### 角色扮演
 
 ```
-分析这个项目的性能瓶颈：
-1. 查找 N+1 查询
-2. 检查不必要的重渲染
-3. 分析包体积
-4. 提出优化方案
+你是一个资深的 DevOps 工程师。请审查这个项目的部署配置，
+从安全性、可扩展性、成本三个维度给出建议。
+假设这是一个面向中国用户的 SaaS 应用，日活约 10 万。
 ```
 
-## 工作流自动化
+### 约束条件
+
+```
+重构 src/utils/helpers.ts，要求：
+- 不能改变任何导出函数的签名
+- 保持向后兼容
+- 所有新函数必须有 TypeScript 类型
+- 测试覆盖率不能下降
+```
+
+## 三、高效提示词模板
+
+### 模板 1：功能开发
+
+```markdown
+## 需求
+实现用户个人资料编辑功能
+
+## 技术要求
+- 前端：React 表单 + Formik + Yup 验证
+- 后端：Express PATCH 接口
+- 数据库：Prisma 更新操作
+
+## 具体需求
+1. 前端表单包含：用户名、邮箱、头像、简介
+2. 支持头像上传（限制 2MB，格式 jpg/png）
+3. 表单验证：用户名必填且 3-20 字符，邮箱格式验证
+4. 后端验证：邮箱唯一性检查
+5. 保存成功后显示提示并跳转
+
+## 参考
+- 参考 src/components/UserSettings/ 的现有代码风格
+- API 格式参考 src/api/users.ts
+```
+
+### 模板 2：Bug 修复
+
+```markdown
+## Bug 描述
+用户反馈：在移动端下拉选择框点击无响应
+
+## 复现步骤
+1. 在 iPhone 14 上打开 /dashboard
+2. 点击"选择项目"下拉框
+3. 选项列表出现后点击某个选项
+4. 下拉框关闭但选中值未更新
+
+## 环境信息
+- 浏览器：Safari 17.2
+- 组件：src/components/Select/index.tsx
+- 相关依赖：react-select v5.8.0
+
+## 已尝试
+- 清除缓存无效
+- 电脑端正常
+- 其他下拉框也有同样问题
+```
+
+### 模板 3：代码审查
+
+```markdown
+请审查以下文件，重点关注：
+
+## 审查维度
+1. **安全性**：XSS、SQL 注入、敏感信息泄露
+2. **性能**：不必要的渲染、内存泄漏、大列表处理
+3. **可维护性**：代码重复、复杂度、命名规范
+4. **错误处理**：异常捕获、用户反馈、日志记录
+
+## 输出格式
+按严重程度分为：
+- 🔴 必须修复
+- 🟡 建议优化
+- 🟢 小建议
+
+每个问题给出：位置、问题描述、修改建议
+```
+
+## 四、工作流自动化
 
 ### Git 工作流
 
 ```
-帮我完成以下 Git 操作：
-1. 暂存所有更改
-2. 创建 commit（遵循 Conventional Commits 规范）
-3. 推送到远程仓库
-4. 如果有 PR 需求，创建 Pull Request
+# 功能开发完成后，让 Claude 帮你完成 Git 流程：
+> 帮我把刚才的修改提交到 Git，创建一个新分支 feature/user-profile-edit，
+> 提交信息用中文，遵循 Conventional Commits
 ```
 
-### 代码质量检查
+### CI/CD 配合
 
 ```
-运行完整的代码质量检查：
-1. ESLint 检查
-2. TypeScript 类型检查
-3. 单元测试
-4. 生成覆盖率报告
-
-如果有错误，帮我全部修复。
+> 读取 .github/workflows/ci.yml，分析 CI 流程，
+> 然后帮我添加一个 lint 检查步骤
 ```
 
-## 性能优化建议
-
-### 减少上下文
-
-Claude Code 会读取整个项目，对于大型项目可以：
-
-1. 使用 `.claudeignore` 文件排除不需要的目录
-2. 在提示词中明确指定相关文件
-3. 分模块进行交互
-
-### 利用缓存
-
-Claude Code 会缓存对话上下文，合理利用可以提高效率：
+### 代码审查自动化
 
 ```
-继续上次的任务，我们已经完成了用户注册，
-现在实现登录功能
+> 对比 main 分支和当前分支的差异，做一次完整的代码审查，
+> 输出审查报告
 ```
 
-## 下一步
+## 五、高级技巧汇总
 
-查看 [实战案例](/claude-code/workflows) 了解完整项目实战。
+### 1. 利用 `/compact` 管理长对话
+
+```
+/compact 请保留以下信息：
+- 我们正在开发用户认证模块
+- 数据库使用 PostgreSQL + Prisma
+- 已完成登录和注册接口
+- 下一步要做密码重置
+```
+
+### 2. 批量操作
+
+```
+> 批量重命名 src/components/ 下所有文件：
+> 将 xxx.tsx 改为 Xxx.tsx（首字母大写）
+> 同时更新所有 import 语句
+```
+
+### 3. 项目初始化
+
+```
+> 帮我从零初始化一个 Next.js 14 项目：
+> - 使用 App Router
+> - TypeScript + Tailwind CSS
+> - ESLint + Prettier 配置
+> - GitHub Actions CI/CD
+> - Docker 部署配置
+```
+
+### 4. 代码迁移
+
+```
+> 帮我把这个项目从 Webpack 迁移到 Vite：
+> 1. 分析现有 Webpack 配置
+> 2. 创建等效的 Vite 配置
+> 3. 更新 package.json 脚本
+> 4. 测试确认所有功能正常
+```
+
+## 六、性能优化建议
+
+### 减少 Token 消耗
+
+```bash
+# 用 /compact 压缩对话
+/compact
+
+# 针对性提问，避免让 Claude 扫描不必要的文件
+> 读取 src/api/auth.ts 并分析其中的 JWT 验证逻辑
+```
+
+### 并行任务
+
+```
+同时帮我做两件事：
+1. 为 src/utils/ 下的工具函数编写测试
+2. 更新 README.md 中的 API 文档
+```
+
+---
+
+*更多实战案例请查看 [实战案例](./workflows.md)。*
