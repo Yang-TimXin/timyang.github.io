@@ -81,7 +81,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Timyang' }
+      { icon: 'github', link: 'https://github.com/Yang-TimXin' }
     ],
 
     footer: {
@@ -94,7 +94,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/Timyang/timyang.github.io/edit/main/docs/:path',
+      pattern: 'https://github.com/Yang-TimXin/timyang.github.io/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页'
     },
 
