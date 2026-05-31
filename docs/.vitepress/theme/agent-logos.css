@@ -1,0 +1,80 @@
+﻿/* =====================================================
+   Agent 官方 Logo 图标替换
+   ===================================================== */
+
+/* 隐藏原始 emoji，用背景图替换 */
+.VPFeature .icon {
+  position: relative !important;
+}
+
+/* Claude Code - 🤖 */
+.VPFeature:nth-child(1) .icon::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  background-image: url('/ai-hub/logos/claude-code-official.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 1 !important;
+}
+
+/* OpenClaw - 🦞 */
+.VPFeature:nth-child(2) .icon::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  background-image: url('/ai-hub/logos/openclaw.svg') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 1 !important;
+}
+
+/* Cursor - ⚡ */
+.VPFeature:nth-child(3) .icon::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  background-image: url('/ai-hub/logos/cursor.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 1 !important;
+}
+
+/* Windsurf - 🌊 */
+.VPFeature:nth-child(4) .icon::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  background-image: url('/ai-hub/logos/windsurf.svg') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 1 !important;
+}
+
+/* 保留 emoji 作为 fallback */
+.VPFeature:nth-child(1) .icon::before,
+.VPFeature:nth-child(2) .icon::before,
+.VPFeature:nth-child(3) .icon::before,
+.VPFeature:nth-child(4) .icon::before {
+  color: transparent !important;
+}

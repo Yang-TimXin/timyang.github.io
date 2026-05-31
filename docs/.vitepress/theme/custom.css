@@ -994,3 +994,40 @@ body {
     color: #424245 !important;
   }
 }
+
+  /* =====================================================
+   10. 官方 Logo 图标样式
+   ===================================================== */
+
+  /* logo 图标基础样式 */
+  .VPFeature .icon.logo-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    font-size: 0 !important;
+    margin-bottom: 16px !important;
+    display: block !important;
+  }
+
+  /* Claude Code 官方 logo */
+  .VPFeature:nth-child(1) .icon.logo-icon {
+    background-image: url('/ai-hub/logos/claude-code-official.png') !important;
+  }
+
+  /* OpenClaw 官方 logo */
+  .VPFeature:nth-child(2) .icon.logo-icon {
+    background-image: url('/ai-hub/logos/openclaw.svg') !important;
+  }
+
+  /* Cursor 官方 logo */
+  .VPFeature:nth-child(3) .icon.logo-icon {
+    background-image: url('/ai-hub/logos/cursor.png') !important;
+  }
+
+  /* Windsurf 官方 logo */
+  .VPFeature:nth-child(4) .icon.logo-icon {
+    background-image: url('/ai-hub/logos/windsurf.svg') !important;
+  }
