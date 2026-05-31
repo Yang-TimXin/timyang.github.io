@@ -1,0 +1,380 @@
+/* =====================================================
+   AI Agent 教程网站 - 终极优化版黑色毛玻璃风格
+   ===================================================== */
+
+/* 强化 Hero 区域 - 更高级的视觉效果 */
+.VPHero {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 140px 64px 80px !important;
+  min-height: 70vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.VPHero::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3) 0%, transparent 70%) !important;
+  animation: heroGlow 6s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+@keyframes heroGlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.VPHero .container {
+  position: relative !important;
+  z-index: 1 !important;
+  text-align: center !important;
+}
+
+/* 强化标题效果 - 更高级的渐变 */
+.VPHero .VPTitle {
+  font-size: 4rem !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 30%, #a0a0a0 70%, #606060 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: 0 4px 30px rgba(0, 212, 255, 0.4) !important;
+  margin-bottom: 1.5rem !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+}
+
+.VPHero .VPDoc {
+  font-size: 1.4rem !important;
+  color: #c0c0c0 !important;
+  max-width: 700px !important;
+  margin: 0 auto !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 强化功能卡片 - 更高级的毛玻璃效果 */
+.VPFeature {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 24px !important;
+  padding: 36px !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.VPFeature::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent) !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+.VPFeature::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 70%) !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+  pointer-events: none !important;
+}
+
+.VPFeature:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  transform: translateY(-12px) scale(1.02) !important;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(0, 212, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+.VPFeature:hover::before {
+  opacity: 1 !important;
+}
+
+.VPFeature:hover::after {
+  opacity: 1 !important;
+}
+
+.VPFeature .icon {
+  font-size: 3rem !important;
+  margin-bottom: 24px !important;
+  filter: drop-shadow(0 6px 12px rgba(0, 212, 255, 0.4)) !important;
+  transition: all 0.3s ease !important;
+}
+
+.VPFeature:hover .icon {
+  transform: scale(1.1) !important;
+  filter: drop-shadow(0 8px 16px rgba(0, 212, 255, 0.5)) !important;
+}
+
+.VPFeature .title {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 16px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.VPFeature .details {
+  color: #c0c0c0 !important;
+  line-height: 1.7 !important;
+  font-size: 1rem !important;
+}
+
+/* 强化按钮样式 - 更高级的渐变和动画 */
+.VPButton {
+  background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 16px !important;
+  padding: 16px 32px !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  letter-spacing: 0.02em !important;
+}
+
+.VPButton::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+.VPButton:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.6) !important;
+}
+
+.VPButton:hover::before {
+  left: 100% !important;
+}
+
+.VPButton.alt {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: none !important;
+}
+
+.VPButton.alt:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(0, 212, 255, 0.5) !important;
+  box-shadow: 0 6px 30px rgba(0, 212, 255, 0.3) !important;
+}
+
+/* 强化导航栏 - 更高级的毛玻璃效果 */
+.VPNav {
+  background: rgba(10, 10, 10, 0.9) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 强化页脚 - 更高级的毛玻璃效果 */
+footer {
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 添加全局动画 - 更流畅的效果 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.7);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 优化滚动条 - 更美观 */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-radius: 5px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* 优化选择文本 - 更美观 */
+::selection {
+  background: rgba(0, 212, 255, 0.4) !important;
+  color: white !important;
+}
+
+/* 优化焦点状态 - 更明显 */
+:focus-visible {
+  outline: 3px solid #00d4ff !important;
+  outline-offset: 3px !important;
+}
+
+/* 响应式优化 - 更好的移动端体验 */
+@media (max-width: 1024px) {
+  .VPHero {
+    padding: 120px 48px 64px !important;
+    min-height: 60vh !important;
+  }
+  
+  .VPHero .VPTitle {
+    font-size: 3rem !important;
+  }
+  
+  .VPHero .VPDoc {
+    font-size: 1.2rem !important;
+  }
+  
+  .VPFeature {
+    padding: 32px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .VPHero {
+    padding: 100px 24px 48px !important;
+    min-height: 50vh !important;
+  }
+  
+  .VPHero .VPTitle {
+    font-size: 2.5rem !important;
+  }
+  
+  .VPHero .VPDoc {
+    font-size: 1.1rem !important;
+  }
+  
+  .VPFeature {
+    padding: 28px !important;
+  }
+  
+  .VPButton {
+    padding: 14px 28px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .VPHero {
+    padding: 80px 20px 40px !important;
+    min-height: 40vh !important;
+  }
+  
+  .VPHero .VPTitle {
+    font-size: 2rem !important;
+  }
+  
+  .VPHero .VPDoc {
+    font-size: 1rem !important;
+  }
+  
+  .VPFeature {
+    padding: 24px !important;
+  }
+  
+  .VPButton {
+    padding: 12px 24px !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* 添加特殊效果类 */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+}
+
+.glow-border {
+  animation: glow 3s ease-in-out infinite !important;
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite !important;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+  background-size: 200% 100% !important;
+  animation: shimmer 3s linear infinite !important;
+}

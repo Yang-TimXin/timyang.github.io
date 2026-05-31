@@ -2,6 +2,7 @@
 import DefaultTheme from 'vitepress/theme'
 import './custom.css'
 import './enhanced.css'
+import './ultimate.css'
 
 export default {
   extends: DefaultTheme,
