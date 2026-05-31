@@ -37,6 +37,11 @@
 }
 
 /* 2. 全局样式覆盖 */
+:root {
+  background-color: var(--vp-bg) !important;
+  color: var(--vp-c-text-1) !important;
+}
+
 .dark {
   background-color: var(--vp-bg) !important;
   color: var(--vp-c-text-1) !important;
