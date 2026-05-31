@@ -4,9 +4,10 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'AI Agent Lab',
   description: '面向 AI Agent 的攻略教学与实战指南',
+  base: '/ai-hub/',
 
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/ai-hub/favicon.ico' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap' }],
@@ -97,7 +98,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/Yang-TimXin/timyang.github.io/edit/main/docs/:path',
+      pattern: 'https://github.com/Yang-TimXin/ai-hub/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页'
     },
 
