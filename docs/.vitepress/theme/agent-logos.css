@@ -1,14 +1,18 @@
 ﻿/* =====================================================
    Agent 官方 Logo 图标替换
+   策略：通过 ::before 伪元素覆盖 emoji
    ===================================================== */
 
-/* 隐藏原始 emoji，用背景图替换 */
+/* 所有图标的 ::before 伪元素基础样式 */
 .VPFeature .icon {
   position: relative !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Claude Code - 🤖 */
-.VPFeature:nth-child(1) .icon::before {
+.VPFeature .icon::after {
   content: '' !important;
   position: absolute !important;
   top: 50% !important;
@@ -16,65 +20,38 @@
   transform: translate(-50%, -50%) !important;
   width: 48px !important;
   height: 48px !important;
-  background-image: url('/ai-hub/logos/claude-code-official.png') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
+  border-radius: 12px !important;
 }
 
-/* OpenClaw - 🦞 */
-.VPFeature:nth-child(2) .icon::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 48px !important;
-  height: 48px !important;
-  background-image: url('/ai-hub/logos/openclaw.svg') !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  z-index: 1 !important;
-}
-
-/* Cursor - ⚡ */
-.VPFeature:nth-child(3) .icon::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 48px !important;
-  height: 48px !important;
-  background-image: url('/ai-hub/logos/cursor.png') !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  z-index: 1 !important;
-}
-
-/* Windsurf - 🌊 */
-.VPFeature:nth-child(4) .icon::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 48px !important;
-  height: 48px !important;
-  background-image: url('/ai-hub/logos/windsurf.svg') !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  z-index: 1 !important;
-}
-
-/* 保留 emoji 作为 fallback */
-.VPFeature:nth-child(1) .icon::before,
-.VPFeature:nth-child(2) .icon::before,
-.VPFeature:nth-child(3) .icon::before,
-.VPFeature:nth-child(4) .icon::before {
+/* 隐藏原始 emoji 文字 */
+.VPFeature:nth-of-type(1) .icon,
+.VPFeature:nth-of-type(2) .icon,
+.VPFeature:nth-of-type(3) .icon,
+.VPFeature:nth-of-type(4) .icon {
   color: transparent !important;
+  font-size: 0 !important;
+}
+
+/* Claude Code - 第1个卡片 */
+.VPFeature:nth-of-type(1) .icon::after {
+  background-image: url('/ai-hub/logos/claude-code-official.png') !important;
+}
+
+/* OpenClaw - 第2个卡片 */
+.VPFeature:nth-of-type(2) .icon::after {
+  background-image: url('/ai-hub/logos/openclaw.svg') !important;
+}
+
+/* Cursor - 第3个卡片 */
+.VPFeature:nth-of-type(3) .icon::after {
+  background-image: url('/ai-hub/logos/cursor.png') !important;
+}
+
+/* Windsurf - 第4个卡片 */
+.VPFeature:nth-of-type(4) .icon::after {
+  background-image: url('/ai-hub/logos/windsurf.svg') !important;
 }
