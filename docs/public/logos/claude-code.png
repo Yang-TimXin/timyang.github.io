@@ -36,6 +36,6 @@ details[open] { background: #970302; color: #dfdedd; }
 <p>Use thumbnail sizes listed on https://w.wiki/GHai</p>
 </div>
 </div>
-<div class="footer"><p>If you report this error to the Wikimedia System Administrators, please include the details below.</p><p class="text-muted"><code>Request served via cp5029 cp5029, Varnish XID 272532838<br>Upstream caches: cp5029 int<br>Error: 400, Use thumbnail sizes listed on https://w.wiki/GHai at Sun, 31 May 2026 02:40:39 GMT<br><details><summary>Sensitive client information</summary>IP address: 240e:430:6b0:a756:4462:23be:95fe:b351</details></code></p>
+<div class="footer"><p>If you report this error to the Wikimedia System Administrators, please include the details below.</p><p class="text-muted"><code>Request served via cp5029 cp5029, Varnish XID 281806289<br>Upstream caches: cp5029 int<br>Error: 400, Use thumbnail sizes listed on https://w.wiki/GHai at Sun, 31 May 2026 02:51:08 GMT<br><details><summary>Sensitive client information</summary>IP address: 240e:430:6b0:a756:4462:23be:95fe:b351</details></code></p>
 </div>
 </html>

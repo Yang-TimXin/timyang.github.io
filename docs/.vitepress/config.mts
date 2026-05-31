@@ -14,7 +14,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: '/logos/openclaw.svg',
+    logo: '/logos/claude-code.svg',
     siteTitle: 'AI Agent Lab',
     darkMode: true,
 
