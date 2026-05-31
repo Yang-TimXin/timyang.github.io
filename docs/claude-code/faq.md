@@ -318,4 +318,208 @@ claude  # 重新开始
 
 ---
 
+## 七、使用技巧常见问题
+
+### Q17: 如何让 Claude Code 更好地理解我的代码？
+
+**解决方案**：
+
+```markdown
+# 1. 在项目根目录创建 CLAUDE.md 文件
+# 说明项目的技术栈、架构和编码规范
+
+# 示例 CLAUDE.md：
+# 技术栈：React + TypeScript + Tailwind CSS
+# 项目结构：
+# - src/components/ - React 组件
+# - src/utils/ - 工具函数
+# - src/api/ - API 接口
+# 编码规范：
+# - 使用函数式组件
+# - 使用 TypeScript 严格模式
+# - 样式使用 Tailwind CSS
+```
+
+### Q18: Claude Code 能帮我学习新技术吗？
+
+**当然可以！**
+
+```bash
+# 1. 让 Claude 解释概念
+> 什么是 React 的虚拟 DOM？
+> 请用简单的比喻解释
+
+# 2. 让 Claude 写示例代码
+> 请写一个简单的 React 组件示例
+> 包含详细的注释
+
+# 3. 让 Claude 教你最佳实践
+> 什么是 TypeScript 的最佳实践？
+> 请给我一些具体的例子
+
+# 4. 让 Claude 评审你的代码
+> 我写的这段代码有什么问题？
+> 如何改进？
+```
+
+### Q19: Claude Code 和其他 AI 编程工具相比有什么优势？
+
+| 特性 | Claude Code | GitHub Copilot | Cursor |
+|------|-------------|----------------|--------|
+| 运行方式 | 命令行 | IDE 插件 | IDE |
+| 上下文理解 | 整个项目 | 当前文件 | 当前项目 |
+| 交互方式 | 对话式 | 代码补全 | 对话+补全 |
+| 灵活性 | 高（可与任何编辑器配合） | 中（依赖特定 IDE） | 低（绑定 Cursor IDE） |
+| 成本 | 按使用量计费 | 订阅制 | 订阅制 |
+
+### Q20: 如何在团队中推广 Claude Code？
+
+**建议步骤**：
+
+```markdown
+# 1. 从一个小项目开始
+选择一个非核心项目进行试点
+
+# 2. 建立共享的 CLAUDE.md
+团队共同维护项目规范
+
+# 3. 分享最佳实践
+定期分享使用技巧和经验
+
+# 4. 建立代码审查流程
+Claude Code 生成的代码也需要人工审查
+
+# 5. 量化效果
+跟踪开发效率的提升
+```
+
+### Q21: Claude Code 能处理哪些类型的项目？
+
+**支持的项目类型**：
+
+```markdown
+# 前端项目
+- React, Vue, Angular, Svelte
+- Next.js, Nuxt.js, Gatsby
+- TypeScript, JavaScript
+
+# 后端项目
+- Node.js, Python, Java, Go, Rust
+- Express, Django, Flask, Spring Boot
+- 数据库：PostgreSQL, MySQL, MongoDB
+
+# 移动端项目
+- React Native, Flutter
+- Swift (iOS), Kotlin (Android)
+
+# 全栈项目
+- Next.js + Prisma
+- MERN (MongoDB, Express, React, Node.js)
+- JAMstack
+```
+
+### Q22: 如何避免 Claude Code 生成不安全的代码？
+
+**安全检查清单**：
+
+```markdown
+# 1. SQL 注入
+- 确保使用参数化查询
+- 不要直接拼接 SQL 字符串
+
+# 2. XSS 攻击
+- 对用户输入进行转义
+- 使用 Content Security Policy
+
+# 3. 敏感数据泄露
+- 不要在代码中硬编码密码
+- 使用环境变量存储敏感信息
+
+# 4. 权限控制
+- 确保 API 有适当的权限检查
+- 实现角色-based 访问控制
+
+# 5. 依赖安全
+- 定期更新依赖包
+- 使用 npm audit 检查漏洞
+```
+
+### Q23: Claude Code 的使用限制是什么？
+
+**主要限制**：
+
+```markdown
+# 1. 上下文窗口限制
+- 单次对话不能处理无限长的代码
+- 解决方案：使用 /compact 压缩历史
+
+# 2. 网络依赖
+- 需要连接 Anthropic API
+- 离线环境无法使用
+
+# 3. 代码生成质量
+- 可能生成有 bug 的代码
+- 需要人工审查和测试
+
+# 4. 安全性
+- 不要在生产环境直接使用生成的代码
+- 需要进行安全审查
+
+# 5. 成本
+- 按 token 使用量计费
+- 大型项目可能产生较高费用
+```
+
+### Q24: 如何优化 Claude Code 的使用成本？
+
+**成本优化技巧**：
+
+```bash
+# 1. 使用 /cost 监控消耗
+> /cost
+
+# 2. 使用 /compact 压缩历史
+> /compact
+
+# 3. 针对性提问
+> 只询问必要的文件和功能
+
+# 4. 复杂任务拆分
+> 分步骤完成，而不是一次性完成
+
+# 5. 使用 CLAUDE.md
+> 减少重复说明项目背景
+
+# 6. 避免不必要的文件扫描
+> 指定具体文件路径
+```
+
+### Q25: Claude Code 未来会有什么新功能？
+
+**可能的未来发展方向**：
+
+```markdown
+# 1. 更强的上下文理解
+- 支持更大的代码库
+- 更好的跨文件理解
+
+# 2. 更多集成
+- 与更多 IDE 集成
+- 与 CI/CD 工具集成
+
+# 3. 更好的协作功能
+- 团队协作模式
+- 代码审查集成
+
+# 4. 更多语言支持
+- 支持更多编程语言
+- 更好的多语言项目支持
+
+# 5. 性能优化
+- 更快的响应速度
+- 更低的成本
+```
+
+---
+
 *更多问题欢迎在 [GitHub Issues](https://github.com/anthropics/claude-code/issues) 中反馈。*
