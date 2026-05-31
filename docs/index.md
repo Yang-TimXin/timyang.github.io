@@ -53,3 +53,38 @@ features:
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #818cf8 30%, #a78bfa 70%, #f0abfc 100%);
 }
 </style>
+
+<script>
+if (typeof window !== 'undefined') {
+  const replaceIcons = () => {
+    const features = document.querySelectorAll('.VPFeature')
+    if (features.length === 0) return
+    const logoMap = {
+      'Claude Code': '/ai-hub/logos/claude-code-official.png',
+      'OpenClaw': '/ai-hub/logos/openclaw.svg',
+      'Cursor': '/ai-hub/logos/cursor.png',
+      'Windsurf': '/ai-hub/logos/windsurf.svg'
+    }
+    features.forEach(f => {
+      const t = f.querySelector('.title')
+      const i = f.querySelector('.icon')
+      if (!t || !i) return
+      const title = t.textContent.trim()
+      if (logoMap[title]) {
+        i.style.fontSize = '0'
+        i.style.color = 'transparent'
+        i.style.backgroundImage = `url('${logoMap[title]}')`
+        i.style.backgroundSize = 'contain'
+        i.style.backgroundRepeat = 'no-repeat'
+        i.style.backgroundPosition = 'center'
+        i.style.width = '48px'
+        i.style.height = '48px'
+        i.style.borderRadius = '12px'
+      }
+    })
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', replaceIcons)
+    : replaceIcons()
+}
+</script>
