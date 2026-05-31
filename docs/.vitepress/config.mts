@@ -7,14 +7,14 @@ export default defineConfig({
   base: '/ai-hub/',
 
   head: [
-    ['link', { rel: 'icon', href: '/ai-hub/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/ai-hub/logo.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap' }],
   ],
 
   themeConfig: {
-    logo: '/logos/claude-code-official.png',
+    logo: '/ai-hub/logo.svg',
     siteTitle: 'AI Agent Lab',
     darkMode: true,
 
