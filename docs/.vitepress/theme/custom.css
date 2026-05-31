@@ -48,6 +48,11 @@ body {
   color: var(--vp-c-text-1) !important;
 }
 
+html:not(.dark) body {
+  background-color: var(--vp-bg) !important;
+  color: var(--vp-c-text-1) !important;
+}
+
 .dark .VPNav {
   background-color: rgba(10, 10, 15, 0.85) !important;
   backdrop-filter: blur(var(--vp-glass-blur)) !important;
