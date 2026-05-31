@@ -1,57 +1,41 @@
-﻿/* =====================================================
+/* =====================================================
    Agent 官方 Logo 图标替换
-   策略：通过 ::before 伪元素覆盖 emoji
+   使用 data 属性 + CSS 选择器
    ===================================================== */
 
-/* 所有图标的 ::before 伪元素基础样式 */
+/* 先隐藏所有 emoji */
 .VPFeature .icon {
-  position: relative !important;
-  overflow: visible !important;
+  font-size: 0 !important;
+  width: 48px !important;
+  height: 48px !important;
+  margin-bottom: 16px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-}
-
-.VPFeature .icon::after {
-  content: '' !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 48px !important;
-  height: 48px !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  z-index: 2 !important;
   border-radius: 12px !important;
+  transition: transform 0.3s ease !important;
 }
 
-/* 隐藏原始 emoji 文字 */
-.VPFeature:nth-of-type(1) .icon,
-.VPFeature:nth-of-type(2) .icon,
-.VPFeature:nth-of-type(3) .icon,
-.VPFeature:nth-of-type(4) .icon {
-  color: transparent !important;
-  font-size: 0 !important;
+.VPFeature:hover .icon {
+  transform: scale(1.1) !important;
 }
 
-/* Claude Code - 第1个卡片 */
-.VPFeature:nth-of-type(1) .icon::after {
+/* 用 data-agent 属性标记的图标 */
+.VPFeature .icon[data-agent="claude-code"] {
   background-image: url('/ai-hub/logos/claude-code-official.png') !important;
 }
 
-/* OpenClaw - 第2个卡片 */
-.VPFeature:nth-of-type(2) .icon::after {
+.VPFeature .icon[data-agent="openclaw"] {
   background-image: url('/ai-hub/logos/openclaw.svg') !important;
 }
 
-/* Cursor - 第3个卡片 */
-.VPFeature:nth-of-type(3) .icon::after {
+.VPFeature .icon[data-agent="cursor"] {
   background-image: url('/ai-hub/logos/cursor.png') !important;
 }
 
-/* Windsurf - 第4个卡片 */
-.VPFeature:nth-of-type(4) .icon::after {
+.VPFeature .icon[data-agent="windsurf"] {
   background-image: url('/ai-hub/logos/windsurf.svg') !important;
 }
