@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import './theme/custom.css'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -13,9 +15,13 @@ export default defineConfig({
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap' }],
   ],
 
+  theme: {
+    extends: DefaultTheme,
+  },
   themeConfig: {
     logo: '/logo.svg',
     siteTitle: 'AI Agent Lab',
+    darkMode: true,
 
     nav: [
       { text: '首页', link: '/' },
