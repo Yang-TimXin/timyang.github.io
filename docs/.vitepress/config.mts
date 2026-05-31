@@ -30,6 +30,7 @@ export default defineConfig({
           { text: 'Windsurf', link: '/windsurf/' },
         ]
       },
+      { text: '工具评测', link: '/comparison/' },
       { text: '资源汇总', link: '/resources/' },
     ],
 
@@ -40,6 +41,7 @@ export default defineConfig({
           items: [
             { text: '什么是 AI Agent', link: '/guide/what-is-ai-agent' },
             { text: '快速上手', link: '/guide/getting-started' },
+            { text: 'AI 编程工具深度评测', link: '/comparison/' },
           ]
         }
       ],
@@ -61,6 +63,8 @@ export default defineConfig({
           text: 'Cursor',
           items: [
             { text: '概览', link: '/cursor/' },
+            { text: '基础用法', link: '/cursor/basics' },
+            { text: '高级技巧', link: '/cursor/advanced' },
           ]
         }
       ],
@@ -69,6 +73,8 @@ export default defineConfig({
           text: 'Windsurf',
           items: [
             { text: '概览', link: '/windsurf/' },
+            { text: '基础用法', link: '/windsurf/basics' },
+            { text: '高级技巧', link: '/windsurf/advanced' },
           ]
         }
       ],

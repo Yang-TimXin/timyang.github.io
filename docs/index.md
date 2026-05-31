@@ -17,6 +17,10 @@ hero:
       link: /openclaw/
 
 features:
+  - icon: 🗺️
+    title: AI 编程工具深度评测
+    details: Claude Code、Cursor、Windsurf、OpenClaw 四大工具全面对比与选择指南
+    link: /comparison/
   - icon: 🤖
     title: Claude Code
     details: Anthropic 官方 CLI 编程助手，终端里的 AI 结对编程伙伴，支持代码生成、调试、重构
@@ -37,10 +41,6 @@ features:
     title: 实战案例
     details: 真实场景的完整流程演示，从零搭建全栈应用，学以致用
     link: /workflows/
-  - icon: 🔗
-    title: 资源汇总
-    details: 常用工具、社区链接、学习资料一站式整理，不走弯路
-    link: /resources/
 ---
 
 <style>
